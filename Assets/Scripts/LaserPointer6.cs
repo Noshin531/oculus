@@ -72,16 +72,18 @@ public class LaserPointer6: MonoBehaviour {
 			if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) {
                 // トリガーボタンを押した時
 				if (obj.tag == "AnswerArea") {
-					GameObject image =  Instantiate(_TrueImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
-					ScoreManager.addScore(20);
-					image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+					//GameObject image =  Instantiate(_TrueImage, new Vector3(0.0f,34.8f,0.0f)/*pointerRay.origin + pointerRay.direction * 150*/, Quaternion.LookRotation(pointerRay.direction));
+					ScoreManager.addScore(20);//1
+                    _TrueImage.SetActive(true);
+					//image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
                     //SceneManager.LoadScene("score");
-                    FadeManager.Instance.LoadScene("score", 2.0f);
+                    FadeManager.Instance.LoadScene("score", 5.0f);
                 }
 				else {
-					GameObject image = Instantiate(_FalseImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
-					// fade out
-					image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                    //GameObject image = Instantiate(_FalseImage, new Vector3(0.0f,-31.8f,0.0f)/*pointerRay.origin + pointerRay.direction * 150*/, Quaternion.LookRotation(pointerRay.direction));
+                    // fade out
+                    //image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                    _FalseImage.SetActive(true);//2
                     //SceneManager.LoadScene("score");
                 }
                 //Vector3 maxScale = new Vector3(5f,5f,5f);
@@ -106,8 +108,9 @@ public class LaserPointer6: MonoBehaviour {
             _LaserPointerRenderer.SetPosition(1, pointerRay.origin + pointerRay.direction * _MaxDistance);
             if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
             {
-				GameObject image = Instantiate(_FalseImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
-				image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                //GameObject image = Instantiate(_FalseImage, new Vector3(0.0f,-31.8f,0.0f)/*pointerRay.origin + pointerRay.direction * 150*/, Quaternion.LookRotation(pointerRay.direction));
+                //image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                _FalseImage.SetActive(false);//3
                 //SceneManager.LoadScene("score");
                 FadeManager.Instance.LoadScene("score", 2.0f);
             }

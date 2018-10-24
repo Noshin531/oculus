@@ -64,15 +64,17 @@ public class LaserPointer : MonoBehaviour {
 			if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)) {
                 // トリガーボタンを押した時
 				if (obj.tag == "AnswerArea") {
-					GameObject image =  Instantiate(_TrueImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
+					//GameObject image =  Instantiate(_TrueImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
 					ScoreManager.addScore(20);
-					image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                    //image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                    _TrueImage.SetActive(true);//1
                     SceneManager.LoadScene("tete1");
 				}
 				else {
-					GameObject image = Instantiate(_FalseImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
-					// fade out
-					image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                    //GameObject image = Instantiate(_FalseImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
+                    _FalseImage.SetActive(true);//2
+                    // fade out
+                    //image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
                     //SceneManager.LoadScene("tete1");
                 }
                 //Vector3 maxScale = new Vector3(5f,5f,5f);
@@ -97,8 +99,9 @@ public class LaserPointer : MonoBehaviour {
             _LaserPointerRenderer.SetPosition(1, pointerRay.origin + pointerRay.direction * _MaxDistance);
             if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
             {
-				GameObject image = Instantiate(_FalseImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
-				image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                //GameObject image = Instantiate(_FalseImage, pointerRay.origin + pointerRay.direction * 150, Quaternion.LookRotation(pointerRay.direction));
+                //image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
+                _FalseImage.SetActive(true);//3
                 SceneManager.LoadScene("tete1");
             }
         }
