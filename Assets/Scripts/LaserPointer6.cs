@@ -110,7 +110,7 @@ public class LaserPointer6: MonoBehaviour {
             {
                 //GameObject image = Instantiate(_FalseImage, new Vector3(0.0f,-31.8f,0.0f)/*pointerRay.origin + pointerRay.direction * 150*/, Quaternion.LookRotation(pointerRay.direction));
                 //image.GetComponentInChildren<RawImage>().CrossFadeAlpha(0.0f, 1.0f, true);
-                _FalseImage.SetActive(false);//3
+                _FalseImage.SetActive(true);//3
                 //SceneManager.LoadScene("score");
                 FadeManager.Instance.LoadScene("score", 2.0f);
             }
